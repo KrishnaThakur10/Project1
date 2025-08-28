@@ -9,8 +9,8 @@ function Login({handleLogin}) {
     const Submithandler = (e) => {
         e.preventDefault()
         handleLogin(email,password)
-        console.log("email: ",email)
-        console.log("password: ",password)
+        // console.log("email: ",email)
+        // console.log("password: ",password)
 
         setEmail('')
         setPassword('')
