@@ -1,7 +1,8 @@
 const employees = [
   {
     id: 1,
-    email: "employee1@example.com",
+    firstname: "Aarav",
+    email: "1@1",
     password: "123",
     tasks: [
       {
@@ -19,7 +20,7 @@ const employees = [
         description: "Follow up with client ABC Ltd. regarding the proposal.",
         date: "2025-05-12",
         category: "Communication",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
@@ -34,10 +35,17 @@ const employees = [
         completed: true,
         failed: false
       }
-    ]
+    ],
+    taskNumber: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    }
   },
   {
     id: 2,
+    firstname: "Ishaan",
     email: "employee2@example.com",
     password: "123",
     tasks: [
@@ -46,7 +54,7 @@ const employees = [
         description: "Create a promotional banner for the homepage.",
         date: "2025-05-18",
         category: "Design",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
@@ -76,15 +84,22 @@ const employees = [
         description: "Update the project documentation.",
         date: "2025-05-16",
         category: "Documentation",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
       }
-    ]
+    ],
+    taskNumber: {
+      active: 0,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    }
   },
   {
     id: 3,
+    firstname: "Ravi",
     email: "employee3@example.com",
     password: "123",
     tasks: [
@@ -93,7 +108,7 @@ const employees = [
         description: "Analyze market trends for Q2.",
         date: "2025-05-11",
         category: "Research",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
@@ -118,10 +133,17 @@ const employees = [
         completed: false,
         failed: true
       }
-    ]
+    ],
+    taskNumber: {
+      active: 0,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    }
   },
   {
     id: 4,
+    firstname: "Priya",
     email: "employee4@example.com",
     password: "123",
     tasks: [
@@ -140,7 +162,7 @@ const employees = [
         description: "Negotiate better rates with suppliers.",
         date: "2025-05-17",
         category: "Procurement",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
@@ -150,7 +172,7 @@ const employees = [
         description: "Collect feedback from team on new software tools.",
         date: "2025-05-15",
         category: "HR",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
@@ -165,10 +187,17 @@ const employees = [
         completed: false,
         failed: true
       }
-    ]
+    ],
+    taskNumber: {
+      active: 0,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    }
   },
   {
     id: 5,
+    firstname: "Saanvi",
     email: "employee5@example.com",
     password: "123",
     tasks: [
@@ -177,7 +206,7 @@ const employees = [
         description: "Routine maintenance of production servers.",
         date: "2025-05-10",
         category: "IT",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false
@@ -212,9 +241,16 @@ const employees = [
         completed: false,
         failed: true
       }
-    ]
+    ],
+    taskNumber: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    }
   }
 ];
+
 
 const admin = [
   {

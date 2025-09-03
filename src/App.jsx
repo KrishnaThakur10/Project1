@@ -7,18 +7,8 @@ import { useState } from "react";
 import { AuthContext } from "./context/AuthProvider.jsx";
 
 const App = () => {
-  const Authdata = useContext(AuthContext);
-  useEffect(() => {
-    if (Authdata) {
-      const status = JSON.parse(localStorage.getItem("loggedInUser"));
-      if (status) {
-        console.log(status.role);
-      }
-    }
-  }, [Authdata]);
-
-  const [user, setUser] = useState(null);
-
+  const Authdata = useContext(AuthContext);  
+  
   const handleLogin = (email, password) => {
     if (
       email == Authdata.admin[0].email &&
@@ -26,19 +16,37 @@ const App = () => {
     ) {
       setUser("admin");
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
-    } else if (
-      Authdata &&
-      Authdata.employees.find((e) => email == e.email && password == e.password)
-    ) {
-      setUser("employee");
-      localStorage.setItem(
-        "loggedInUser",
-        JSON.stringify({ role: "employee" })
+    } else if (Authdata) {
+      const employee = Authdata.employees.find(
+        (e) => email == e.email && password == e.password
       );
+      if (employee) {
+        setUser("employee");
+        setLoggedInUserData(employee);
+        localStorage.setItem(
+          "loggedInUser",
+          JSON.stringify({ role: "employee", data: employee })
+        );
+      } else {
+        alert("Please enter a valid email or password");
+      }
     } else {
       alert("Please enter a valid email or password");
     }
   };
+  
+  const [user, setUser] = useState(null);
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
+
+  useEffect(() => {
+    const status = JSON.parse(localStorage.getItem("loggedInUser"))
+
+    if(status ){
+      setUser(status.role)
+      setLoggedInUserData(status.data)
+    }
+  }, [])
+
 
   return (
     <>
@@ -47,7 +55,7 @@ const App = () => {
       ) : user === "admin" ? (
         <AdminDashboard />
       ) : user === "employee" ? (
-        <EmployeeDashboard />
+        <EmployeeDashboard data={loggedInUserData} />
       ) : (
         <Login handleLogin={handleLogin} />
       )}

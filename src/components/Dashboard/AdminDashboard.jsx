@@ -8,7 +8,7 @@ function AdminDashboard() {
     <div className='h-screen w-full p-10ll '>
       <Header/>
       <CreateTask/>
-      <AllTask/>
+      <AllTask />
     </div>
   )
 }
